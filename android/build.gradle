@@ -1,12 +1,12 @@
 buildscript {
-    ext.kotlin_version = '1.8.10'
+    ext.kotlin_version = '1.7.10'
     repositories {
         google()
         mavenCentral()
     }
 
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+         implementation 'com.google.firebase:firebase-ml-vision:latest_version'
     }
 }
 
@@ -21,16 +21,10 @@ rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
 }
-
 subprojects {
     project.evaluationDependsOn(':app')
 }
 
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
-}
-
-// Add Firebase ML Vision dependency
-dependencies {
-    implementation 'com.google.firebase:firebase-ml-vision:latest_version'
 }
