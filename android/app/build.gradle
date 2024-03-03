@@ -64,6 +64,4 @@ flutter {
     source '../..'
 }
 
-dependencies {
-    implementation 'com.google.firebase:firebase-ml-vision:latest_version'
-}
+dependencies {}
