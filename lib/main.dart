@@ -1,73 +1,155 @@
-import 'dart:io';
+// //import 'dart:async';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// // import 'package:app_gdradution/homes.dart';
+// // //import 'package:app_gdradution/reg.dart';
+// // import 'package:firebase_core/firebase_core.dart';
+
+// // import 'package:flutter/material.dart';
+
+// // Future<void> main() async {
+// //  WidgetsFlutterBinding.ensureInitialized() ;
+// // await Firebase.initializeApp();
+
+// // // // if(kIsWeb){
+// //  //await Firebase.initializeApp(options: FirebaseOptions(apiKey: "AIzaSyATkTzLWCJtFn-YybZj8DwWA0CwgHMZsbw", appId: "1:422231480438:web:99232a1612feb06b59e757", messagingSenderId: "422231480438", projectId: "uhd-project-9fd05"));
+// // // // }
+// // //  //await Firebase.initializeApp();
+// // runApp(MyApp());}
+
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:graduation_app/firebase_options.dart';
 
-void main() async {
+//import 'package:firebase_core/firebase_core.dart';
+
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  _initializeFirebase();
+//   await Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+// );
+// FirebaseAppCheck firebaseAppCheck
+// = FirebaseAppCheck.getInstance(); firebaseAppCheck.installAppCheckProviderFactory( SafetyNet AppCheckProviderFactory.getInstance());
 
-  if (const bool.fromEnvironment("USE_FIREBASE_EMU")) {
-    await _configureFirebaseAuth();
-    await _configureFirebaseStorage();
-    _configureFirebaseFirestore();
-  }
-
-  runApp(const MyApp());
-}
-
-Future<void> _configureFirebaseAuth() async {
-  String configHost = const String.fromEnvironment("FIREBASE_EMU_URL");
-  int configPort = const int.fromEnvironment("AUTH_EMU_PORT");
-  // Android emulator must be pointed to 10.0.2.2
-  var defaultHost = Platform.isAndroid ? '10.0.2.2' : 'localhost';
-  var host = configHost.isNotEmpty ? configHost : defaultHost;
-  var port = configPort != 0 ? configPort : 9099;
-  await FirebaseAuth.instance.useAuthEmulator(host, port);
-  debugPrint('Using Firebase Auth emulator on: $host:$port');
-}
-
-Future<void> _configureFirebaseStorage() async {
-  String configHost = const String.fromEnvironment("FIREBASE_EMU_URL");
-  int configPort = const int.fromEnvironment("STORAGE_EMU_PORT");
-  // Android emulator must be pointed to 10.0.2.2
-  var defaultHost = Platform.isAndroid ? '10.0.2.2' : 'localhost';
-  var host = configHost.isNotEmpty ? configHost : defaultHost;
-  var port = configPort != 0 ? configPort : 9199;
-  await FirebaseStorage.instance.useStorageEmulator(host, port);
-  debugPrint('Using Firebase Storage emulator on: $host:$port');
-}
-
-void _configureFirebaseFirestore() {
-  String configHost = const String.fromEnvironment("FIREBASE_EMU_URL");
-  int configPort = const int.fromEnvironment("DB_EMU_PORT");
-  // Android emulator must be pointed to 10.0.2.2
-  var defaultHost = Platform.isAndroid ? '10.0.2.2' : 'localhost';
-  var host = configHost.isNotEmpty ? configHost : defaultHost;
-  var port = configPort != 0 ? configPort : 8080;
-
-  FirebaseFirestore.instance.settings = Settings(
-    host: '$host:$port',
-    sslEnabled: false,
-    persistenceEnabled: false,
-  );
-  debugPrint('Using Firebase Firestore emulator on: $host:$port');
+//.then((FirebaseApp value) => Get.put(AuthenticationRepository()))
+  //await Firebase.initializeApp(options:DefaultFirebaseOption.currentPlatform).then((value) => null);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      initialRoute: '/login',
-    );
+        //Rigister_Teacher()
+        //  SignUpPage()
+        //WelcomeScreen()
+        //HomePage()
+
+        //RegisterScreen1()
+        //MyPhones()
+        //LoginScreen1()
+
+        //LoginPage2()
+        // MyPhones1()
+        //splsahe()
+        //MyPhones()
+        //LoginScreen1()
+
+        //DropdownExample()
+
+        );
   }
 }
+
+_initializeFirebase() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+}
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MultiProvider(
+//       providers: [
+//         ChangeNotifierProvider(create: (context) =>RegisterationAuthProvider() ,),
+//       ],
+//       child: MaterialApp(
+//         title: 'Login App',
+//         home:RegistrationScreen()
+//       ),
+//     );
+//   }
+// }
+
+// import 'package:app_gdradution/helper/helper_function.dart';
+// import 'package:app_gdradution/pages/auth/login_page.dart';
+// import 'package:app_gdradution/pages/home_page.dart';
+// import 'package:app_gdradution/shared/constants.dart';
+
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter/foundation.dart';
+
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+
+//   if (kIsWeb) {
+//     await Firebase.initializeApp(
+//         options: FirebaseOptions(
+//             apiKey: Constants.apiKey,
+//             appId: Constants.appId,
+//             messagingSenderId: Constants.messagingSenderId,
+//             projectId: Constants.projectId));
+//   } else {
+//     await Firebase.initializeApp();
+//   }
+
+//   runApp(const MyApp());
+// }
+
+// class MyApp extends StatefulWidget {
+//   const MyApp({Key? key}) : super(key: key);
+
+//   @override
+//   State<MyApp> createState() => _MyAppState();
+// }
+
+// class _MyAppState extends State<MyApp> {
+//   bool _isSignedIn = false;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     getUserLoggedInStatus();
+//   }
+
+//   getUserLoggedInStatus() async {
+//     await HelperFunctions.getUserLoggedInStatus().then((value) {
+//       if (value != null) {
+//         setState(() {
+//           _isSignedIn = value;
+//         });
+//       }
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       theme: ThemeData(
+//           primaryColor: Constants().primaryColor,
+//           scaffoldBackgroundColor: Colors.white),
+//       debugShowCheckedModeBanner: false,
+//       home: _isSignedIn ? const HomePage() : const LoginPage1(),
+//     );
+//   }
+// }
