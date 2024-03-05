@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:graduation_app/Login_Page.dart';
+import 'package:graduation_app/Register_Student.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 class splsahe extends StatefulWidget {
@@ -54,7 +56,7 @@ class _MyHomePageState extends State<splsahe>
               top: MediaQuery.of(context).size.height / 5,
               left: 150,
               child: Image.asset(
-                'images/logo.png', // Replace with your logo image
+                'images/Logo.png', // Replace with your logo image
                 width: 200,
                 height: 200,
               ),
@@ -211,11 +213,11 @@ class _splash3State extends State<splash3> {
                     iconSize: MaterialStatePropertyAll(100),
                     backgroundColor: MaterialStatePropertyAll(Colors.amber)),
                 onPressed: () {
-                  // Navigator.pushReplacement(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => Register_Student1(),
-                  //     ));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Register_Student1(),
+                      ));
                 },
                 child: Text(
                   " خوێندكار",
@@ -300,11 +302,11 @@ class _splash3State extends State<splash3> {
             left: 130,
             child: TextButton(
                 onPressed: () {
-                  // Navigator.pushReplacement(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => LoginPage(),
-                  //     ));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(),
+                      ));
                 },
                 child: Text(
                   "پێشتر ئه‌كاونتت هه‌بووه‌",
