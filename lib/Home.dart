@@ -124,7 +124,7 @@ class _HomeState extends State<Home> {
                     currentAccountPicture: CircleAvatar(
                       backgroundImage: userData['Email'] == 'hastyar@gmail.com'
                           ? AssetImage('images/Hastyar.jpg')
-                          : userData['Email'] == 'skomand@gmail.com'
+                          : userData['Email'] == 'shkomand@gmail.com'
                               ? AssetImage('images/Shko.jpg')
                               : AssetImage(''),
                     ),

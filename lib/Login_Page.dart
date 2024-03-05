@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Home.dart';
 import 'package:graduation_app/Service.dart';
+import 'package:graduation_app/Splash.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -168,12 +169,12 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       TextButton(
                           onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => splsahe(),
-                            //   ),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => splsahe(),
+                              ),
+                            );
                           },
                           child: Text(
                             'گەڕانەوە',
