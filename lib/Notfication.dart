@@ -73,6 +73,12 @@ class _UserListScreenState extends State<Notfic> {
             MaterialPageRoute(
               builder: (context) => Info(Email: widget.Email),
             ));
+      } else if (_selectedIndex == 3) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Info(Email: widget.Email),
+            ));
       }
     });
   }
@@ -265,6 +271,10 @@ class _UserListScreenState extends State<Notfic> {
             ),
             Icon(
               Icons.notifications,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.message_sharp,
               color: Colors.white,
             ),
           ]),

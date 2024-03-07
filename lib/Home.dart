@@ -3,12 +3,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Cource.dart';
+import 'package:graduation_app/Frend.dart';
 import 'package:graduation_app/IT_CS.dart';
 import 'package:graduation_app/Information.dart';
 import 'package:graduation_app/Login_Page.dart';
 import 'package:graduation_app/Notfication.dart';
 import 'package:graduation_app/Sender.dart';
 import 'package:graduation_app/Setting_Profile.dart';
+import 'package:graduation_app/chat.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -47,12 +49,18 @@ class _HomeState extends State<Home> {
             MaterialPageRoute(
               builder: (context) => Info(Email: widget.Email),
             ));
+      } else if (_selectedIndex == 4) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChatScreen(),
+            ));
       } else if (_selectedIndex == 3) {
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //       builder: (context) => HomePage(),
-        //     ));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => frend(Email: widget.Email),
+            ));
       }
     });
   }
@@ -632,7 +640,11 @@ class _HomeState extends State<Home> {
               color: Colors.white,
             ),
             Icon(
-              Icons.message_sharp,
+              Icons.person,
+              color: Colors.white,
+            ),
+            Icon(
+              Icons.chat,
               color: Colors.white,
             ),
           ]),

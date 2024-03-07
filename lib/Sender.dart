@@ -10,6 +10,22 @@ class UserListScreen extends StatefulWidget {
 }
 
 class _UserListScreenState extends State<UserListScreen> {
+  bool isLoading = false;
+  // Future<void> _uploadImage() async {
+  //   StreamBuilder(
+  //       stream: FirebaseFirestore.instance
+  //           .collection("Register_Student")
+  //           .doc(widget.Email)
+  //           .snapshots(),
+  //       builder: (context, snapshot) {
+  //         if (snapshot.hasData) {
+  //           final userData = snapshot.data!.data() as Map<String, dynamic>;
+  //           final Name = '';
+  //         }
+  //         return isLoading ? CircularProgressIndicator() : SizedBox();
+  //       });
+  // }
+
   Future<void> _insertData(String email) async {
     try {
       await FirebaseFirestore.instance

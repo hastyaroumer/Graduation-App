@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:graduation_app/Login_Page.dart';
 import 'package:graduation_app/Register_Student.dart';
+import 'package:graduation_app/Register_teacher.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 class splsahe extends StatefulWidget {
@@ -232,11 +233,11 @@ class _splash3State extends State<splash3> {
                     iconSize: MaterialStatePropertyAll(100),
                     backgroundColor: MaterialStatePropertyAll(Colors.amber)),
                 onPressed: () {
-                  // Navigator.pushReplacement(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //       builder: (context) => Register_Teacher(),
-                  //     ));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Register_Teacher(),
+                      ));
                 },
                 child: Text(
                   " مامۆستا",
